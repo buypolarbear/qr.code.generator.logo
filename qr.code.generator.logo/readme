@@ -1,0 +1,32 @@
+QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(fileInputPath, fileOutputPath, data);
+[qrCodeGenerator.setMargin(margin);]
+[qrCodeGenerator.setCellSize(cellSize);]
+
+String string = qrCodeGenerator.create();
+System.out.println(string);
+
+*****************************************
+
+@:fileInput's type can not ICO, PNG is better
+@:fileOutput's type PNG
+@:data.getBytes().length < 120;
+
+*****************************************
+
+if success return "Image success !";
+if failure return "Image failure !";
+
+if(this.getData() == null){
+	return "data is null !";
+}else if(this.getData().getBytes().length >= 120){
+	return "data is too long !";
+}
+if(this.getFileOutputPath() == null){
+	return "fileOutputPath is null !";
+}
+if(this.getCellSize().intValue() < 0){
+	return "cellSize can not < 0 !";
+}
+if(this.getMargin().intValue() < 0){
+	return "margin can not < 0 !";
+}
